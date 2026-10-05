@@ -45,6 +45,8 @@ public class usuario {
     @Column(name = "fecha_inscripcion")
     private Timestamp fecha_inscripcion;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "curso_id", nullable = false)
     @Column(name = "curso_id")
     private curso curso_id;
 }

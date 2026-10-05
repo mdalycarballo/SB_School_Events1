@@ -26,9 +26,13 @@ public class notificacion {
     @Column(name = "id")
     private Integer id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
     @Column(name = "usuario_id")
     private usuario usuario_id;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "evento_id", nullable = false)
     @Column(name = "evento_id")
     private evento evento_id;
 

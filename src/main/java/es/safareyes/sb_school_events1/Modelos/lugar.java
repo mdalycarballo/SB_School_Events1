@@ -21,6 +21,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 public class lugar {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")

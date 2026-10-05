@@ -23,6 +23,11 @@ import java.sql.Timestamp;
 
 public class evento_requisito {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private Integer id;
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evento_id", nullable = false)
     @Column(name = "evento_id")
