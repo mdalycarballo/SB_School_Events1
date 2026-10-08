@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,14 +12,14 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "notificacion")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class notificacion {
+public class Notificacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -28,13 +27,11 @@ public class notificacion {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
-    @Column(name = "usuario_id")
-    private usuario usuario_id;
+    private Usuario usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evento_id", nullable = false)
-    @Column(name = "evento_id")
-    private evento evento_id;
+    private Evento evento;
 
     @Column(name = "tipo")
     private String tipo;

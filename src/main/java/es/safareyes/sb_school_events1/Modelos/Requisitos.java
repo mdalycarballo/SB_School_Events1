@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,33 +8,22 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Timestamp;
-
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "requisitos")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
-public class evento_requisito {
+public class Requisitos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "evento_id", nullable = false)
-    @Column(name = "evento_id")
-    private evento evento_id;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "requisito_id", nullable = false)
-    @Column(name = "requisito_id")
-    private requisitos requisito_id;
-
+    @Column(name = "descripcion")
+    private String descripcion;
 }

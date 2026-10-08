@@ -1,6 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
-import jakarta.persistence.*;
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -9,11 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Timestamp;
-
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "foto_publicacion")
 @Getter
 @Setter
 @EqualsAndHashCode
@@ -21,22 +19,21 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @ToString
 
-public class evento_curso {
-
+public class Foto_publicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "evento_id", nullable = false)
-    @Column(name = "evento_id")
-    private evento evento_id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publicacion_id", nullable = false)
+    private Publicacion publicacion;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id", nullable = false)
-    @Column(name = "curso_id")
-    private curso curso_id;
+    @Column(name = "url_foto")
+    private String url_foto;
+
+    @Column(name = "tamano")
+    private Integer tamano;
 
 }
