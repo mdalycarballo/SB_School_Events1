@@ -9,5 +9,5 @@ import java.util.List;
 public interface IPublicacion extends JpaRepository<Publicacion, Integer> {
 
     @EntityGraph(attributePaths = {"fotos", "usuario"})
-    List<Publicacion> findByEventoId(Integer eventoId);
+    List<Publicacion> findByEvento_Id(Integer eventoId);
 }

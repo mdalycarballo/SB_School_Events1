@@ -42,8 +42,8 @@ public class Inscripcion {
     @Column(name = "estado")
     private String estado;
 
-    @Column(name = "asistido")
-    private Boolean asistido;
+    @Column(name = "asistio")
+    private Boolean asistio;
 
     @Column(name = "fecha")
     private Timestamp fecha;

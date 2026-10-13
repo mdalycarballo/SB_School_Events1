@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface IEvento_curso extends JpaRepository<Evento_curso, Integer> {
-    List<Evento_curso> findByEventoId(Long eventoId);
-    boolean existsByEventoIdAndCursoId(Long eventoId, Long cursoId);
+    List<Evento_curso> findByEvento_Id(Integer eventoId);
+    boolean existsByEvento_IdAndCurso_Id(Integer eventoId, Integer cursoId);
 }

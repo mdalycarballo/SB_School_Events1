@@ -36,17 +36,17 @@ public class Evento {
     private String estado;
 
     @Column(name = "fecha_inicio")
-    private Timestamp fecha_inicio;
+    private Timestamp fechaInicio;
 
     @Column(name = "fecha_fin")
-    private Timestamp fecha_fin;
+    private Timestamp fechaFin;
 
     @Column(name = "aforo_maximo")
-    private Integer aforo_maximo;
+    private Integer aforoMaximo;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "creador_id", nullable = false)
-    private Usuario creador_id;
+    private Usuario creador;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categoria_id", nullable = false)
@@ -54,5 +54,5 @@ public class Evento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "lugar_id", nullable = false)
-    private Lugar lugar_id;
+    private Lugar lugar;
 }

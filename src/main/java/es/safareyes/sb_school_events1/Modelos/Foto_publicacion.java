@@ -31,7 +31,7 @@ public class Foto_publicacion {
     private Publicacion publicacion;
 
     @Column(name = "url_foto")
-    private String url_foto;
+    private String urlFoto;
 
     @Column(name = "tamano")
     private Integer tamano;

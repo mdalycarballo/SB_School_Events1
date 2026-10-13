@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ICambio_evento extends JpaRepository<Evento, Integer> {
-    List<Cambio_evento> findByEventoIdOrderByFechaDesc(Integer eventoId);
+public interface ICambio_evento extends JpaRepository<Cambio_evento, Integer> {
+    List<Cambio_evento> findByEvento_IdOrderByFechaDesc(Integer eventoId);
 }

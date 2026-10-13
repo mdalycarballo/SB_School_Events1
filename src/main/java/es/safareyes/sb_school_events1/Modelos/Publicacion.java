@@ -9,6 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
@@ -43,5 +45,6 @@ public class Publicacion {
     @Column(name = "fecha")
     private Timestamp fecha;
 
-
+    @OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Foto_publicacion> fotos = new ArrayList<>();
 }

@@ -1,22 +1,16 @@
 package es.safareyes.sb_school_events1.Repositorios;
 
 import es.safareyes.sb_school_events1.Modelos.Inscripcion;
-
-import org.hibernate.query.Page;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
+import java.util.List;
 import java.util.List;
 
 public interface IInscripcion extends JpaRepository<Inscripcion, Integer> {
-
-    List<Inscripcion> findByUsuarioIdAndTipo(Integer usuarioId, String tipo);
-    List<Inscripcion> findByUsuarioId(Integer usuarioId);
-
-
-
-    Page<Inscripcion> findByEventoIdOrderByFechaInscripcionAsc(Integer eventoId, Pageable pageable);
-
-    //Esto no se porque esta mal, probar interfaz y si no funciona cambiar los Integer eventoId por Evento a secas!!a
-
+    List<Inscripcion> findByUsuario_IdAndTipo(Integer usuarioId, String tipo);
+    List<Inscripcion> findByUsuario_Id(Integer usuarioId);
+    Page<Inscripcion> findByEvento_Id(Integer eventoId, Pageable pageable);
 }

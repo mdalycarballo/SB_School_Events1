@@ -1,4 +1,7 @@
 package es.safareyes.sb_school_events1.Repositorios;
 
-public interface IRequisitos {
+import es.safareyes.sb_school_events1.Modelos.Requisitos;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface IRequisitos extends JpaRepository<Requisitos, Integer> {
 }

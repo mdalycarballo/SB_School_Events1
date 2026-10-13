@@ -42,9 +42,9 @@ public class Usuario {
     private String estado;
 
     @Column(name = "fecha_inscripcion")
-    private Timestamp fecha_inscripcion;
+    private Timestamp fechaInscripcion;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id", nullable = false)
+    @JoinColumn(name = "curso_id", nullable = true)
     private Curso curso;
 }

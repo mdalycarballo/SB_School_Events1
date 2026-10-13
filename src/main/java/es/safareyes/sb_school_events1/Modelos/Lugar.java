@@ -28,5 +28,5 @@ public class Lugar {
     private String nombre;
 
     @Column(name = "aforo_max")
-    private Integer aforo_max;
+    private Integer aforoMax;
 }
