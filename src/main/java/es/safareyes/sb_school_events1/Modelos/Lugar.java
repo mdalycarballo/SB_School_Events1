@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,18 +8,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Timestamp;
-
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "lugar")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class lugar {
+public class Lugar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,14 +12,14 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "publicacion")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class cambio_evento {
+public class Publicacion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,14 +28,20 @@ public class cambio_evento {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "evento_id", nullable = false)
-    @Column(name = "evento_id")
-    private evento evento_id;
+    private Evento evento;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
-    @Column(name = "cambios")
-    private String cambios;
+    @Column(name = "texto")
+    private String texto;
 
+    @Column(name = "resultados")
+    private String resultados;
 
     @Column(name = "fecha")
     private Timestamp fecha;
+
+
 }

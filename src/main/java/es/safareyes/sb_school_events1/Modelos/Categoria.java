@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -9,19 +8,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.sql.Timestamp;
-
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "categoria")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
-public class curso {
+public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +27,10 @@ public class curso {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "nivel")
-    private String nivel;
+    @Column(name = "icono")
+    private String icono;
+
+    @Column(name = "color")
+    private String color;
+
 }

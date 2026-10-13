@@ -1,7 +1,6 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -13,28 +12,29 @@ import java.sql.Timestamp;
 
 
 @Entity
-@Table(name = "cat_continente")
+@Table(name = "inscripcion")
 @Getter
 @Setter
 @EqualsAndHashCode
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class usuario {
+
+public class Inscripcion {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @Column(name = "nombre")
-    private String nombre;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
-    @Column(name = "email")
-    private String email;
-
-    @Column(name = "password")
-    private String password;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "evento_id", nullable = false)
+    private Evento evento;
 
     @Column(name = "tipo")
     private String tipo;
@@ -42,11 +42,9 @@ public class usuario {
     @Column(name = "estado")
     private String estado;
 
-    @Column(name = "fecha_inscripcion")
-    private Timestamp fecha_inscripcion;
+    @Column(name = "asistido")
+    private Boolean asistido;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "curso_id", nullable = false)
-    @Column(name = "curso_id")
-    private curso curso_id;
+    @Column(name = "fecha")
+    private Timestamp fecha;
 }
