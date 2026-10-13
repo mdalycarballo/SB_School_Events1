@@ -54,11 +54,11 @@ public class Test_SE {
     @Autowired
     private IUsuario usuarioRepository;
 
-    // --- MÉTODOS AUXILIARES CON SETTERS ---
+    // --- MÉTODOS AUXILIARES CON SETTERS Y GENERACIÓN DE NOMBRES/EMAILS ÚNICOS ---
 
     private Curso crearCurso() {
         Curso c = new Curso();
-        c.setNombre("1º DAM");
+        c.setNombre("1º DAM " + System.currentTimeMillis());
         c.setNivel("FP Superior");
         return cursoRepository.save(c);
     }
@@ -66,9 +66,9 @@ public class Test_SE {
     private Usuario crearUsuario(Curso curso) {
         Usuario u = new Usuario();
         u.setNombre("Juan Pérez");
-        u.setEmail("juan@safareyes.es");
+        u.setEmail("juan_" + System.currentTimeMillis() + "@safareyes.es");
         u.setPassword("secret");
-        u.setTipo("ALUMNO");
+        u.setTipo("Estudiante"); // O el valor permitido por tu restricción CHECK (ej. "ESTUDIANTE", "ADMIN", etc.)
         u.setEstado("ACTIVO");
         u.setFechaInscripcion(new Timestamp(System.currentTimeMillis()));
         u.setCurso(curso);
@@ -77,7 +77,7 @@ public class Test_SE {
 
     private Categoria crearCategoria() {
         Categoria cat = new Categoria();
-        cat.setNombre("Tecnología");
+        cat.setNombre("Tecnología " + System.currentTimeMillis());
         cat.setIcono("code.png");
         cat.setColor("#3357FF");
         return categoriaRepository.save(cat);
@@ -85,14 +85,14 @@ public class Test_SE {
 
     private Lugar crearLugar() {
         Lugar l = new Lugar();
-        l.setNombre("Salón de Actos");
+        l.setNombre("Salón de Actos " + System.currentTimeMillis());
         l.setAforoMax(150);
         return lugarRepository.save(l);
     }
 
     private Evento crearEvento(Usuario creador, Categoria categoria, Lugar lugar) {
         Evento e = new Evento();
-        e.setTitulo("Feria de Ciencias");
+        e.setTitulo("Feria de Ciencias " + System.currentTimeMillis());
         e.setDescripcion("Evento de muestra");
         e.setEstado("PUBLICADO");
         e.setFechaInicio(new Timestamp(System.currentTimeMillis()));
@@ -115,9 +115,9 @@ public class Test_SE {
     }
 
     private Requisitos crearRequisito() {
-        Requisitos r = new Requisitos();
-        r.setDescripcion("Llevar portátil");
-        return requisitosRepository.save(r);
+        Requisitos requisitos = new Requisitos();
+        requisitos.setDescripcion("Llevar portátil " + System.currentTimeMillis());
+        return requisitosRepository.save(requisitos);
     }
 
     // --- TEST PRINCIPAL: MUESTRA TODAS LAS ENTIDADES EN CONSOLA ---

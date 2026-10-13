@@ -1,25 +1,12 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 import java.sql.Timestamp;
-
 
 @Entity
 @Table(name = "notificacion")
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Notificacion {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -44,4 +31,83 @@ public class Notificacion {
 
     @Column(name = "fecha")
     private Timestamp fecha;
+
+    public Notificacion() {
+    }
+
+    public Notificacion(Integer id, Usuario usuario, Evento evento, String tipo, String mensaje, Boolean leida, Timestamp fecha) {
+        this.id = id;
+        this.usuario = usuario;
+        this.evento = evento;
+        this.tipo = tipo;
+        this.mensaje = mensaje;
+        this.leida = leida;
+        this.fecha = fecha;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getMensaje() {
+        return mensaje;
+    }
+
+    public void setMensaje(String mensaje) {
+        this.mensaje = mensaje;
+    }
+
+    public Boolean getLeida() {
+        return leida;
+    }
+
+    public void setLeida(Boolean leida) {
+        this.leida = leida;
+    }
+
+    public Timestamp getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Timestamp fecha) {
+        this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Notificacion{" +
+                "id=" + id +
+                ", tipo='" + tipo + '\'' +
+                ", mensaje='" + mensaje + '\'' +
+                ", leida=" + leida +
+                '}';
+    }
 }

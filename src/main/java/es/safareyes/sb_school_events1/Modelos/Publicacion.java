@@ -1,26 +1,10 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-
 
 @Entity
 @Table(name = "publicacion")
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Publicacion {
 
     @Id
@@ -45,6 +29,72 @@ public class Publicacion {
     @Column(name = "fecha")
     private Timestamp fecha;
 
-    @OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Foto_publicacion> fotos = new ArrayList<>();
+    public Publicacion() {
+    }
+
+    public Publicacion(Integer id, Evento evento, Usuario usuario, String texto, String resultados, Timestamp fecha) {
+        this.id = id;
+        this.evento = evento;
+        this.usuario = usuario;
+        this.texto = texto;
+        this.resultados = resultados;
+        this.fecha = fecha;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Evento getEvento() {
+        return evento;
+    }
+
+    public void setEvento(Evento evento) {
+        this.evento = evento;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getTexto() {
+        return texto;
+    }
+
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
+
+    public String getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(String resultados) {
+        this.resultados = resultados;
+    }
+
+    public Timestamp getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Timestamp fecha) {
+        this.fecha = fecha;
+    }
+
+    @Override
+    public String toString() {
+        return "Publicacion{" +
+                "id=" + id +
+                ", texto='" + texto + '\'' +
+                ", fecha=" + fecha +
+                '}';
+    }
 }

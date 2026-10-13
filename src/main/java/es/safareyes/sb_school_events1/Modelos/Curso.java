@@ -1,23 +1,9 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 
 @Entity
 @Table(name = "curso")
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
-
 public class Curso {
 
     @Id
@@ -30,4 +16,46 @@ public class Curso {
 
     @Column(name = "nivel")
     private String nivel;
+
+    public Curso() {
+    }
+
+    public Curso(Integer id, String nombre, String nivel) {
+        this.id = id;
+        this.nombre = nombre;
+        this.nivel = nivel;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNivel() {
+        return nivel;
+    }
+
+    public void setNivel(String nivel) {
+        this.nivel = nivel;
+    }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", nivel='" + nivel + '\'' +
+                '}';
+    }
 }

@@ -1,22 +1,9 @@
 package es.safareyes.sb_school_events1.Modelos;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-
 
 @Entity
 @Table(name = "categoria")
-@Getter
-@Setter
-@EqualsAndHashCode
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Categoria {
 
     @Id
@@ -33,4 +20,55 @@ public class Categoria {
     @Column(name = "color")
     private String color;
 
+    public Categoria() {
+    }
+
+    public Categoria(Integer id, String nombre, String icono, String color) {
+        this.id = id;
+        this.nombre = nombre;
+        this.icono = icono;
+        this.color = color;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getIcono() {
+        return icono;
+    }
+
+    public void setIcono(String icono) {
+        this.icono = icono;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Categoria{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", icono='" + icono + '\'' +
+                ", color='" + color + '\'' +
+                '}';
+    }
 }
